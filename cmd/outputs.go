@@ -36,6 +36,7 @@ import (
 	"go.k6.io/k6/output/csv"
 	"go.k6.io/k6/output/influxdb"
 	"go.k6.io/k6/output/json"
+	"go.k6.io/k6/output/mongo"
 	"go.k6.io/k6/output/statsd"
 )
 
@@ -56,6 +57,7 @@ func getAllOutputConstructors() (map[string]func(output.Params) (output.Output, 
 				"please use the statsd output with env. variable K6_STATSD_ENABLE_TAGS=true instead")
 		},
 		"csv": csv.New,
+		"mongo": mongo.New,
 	}
 
 	exts := output.GetExtensions()
